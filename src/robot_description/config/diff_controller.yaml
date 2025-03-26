@@ -1,0 +1,31 @@
+mobile_base_controller:
+  type: diff_drive_controller/DiffDriveController
+  # 轮组定义（必须与URDF关节名严格一致）
+  left_wheel_names: 
+    - "back_left_wheel_joint" 
+    - "front_left_wheel_joint"
+  right_wheel_names: 
+    - "back_right_wheel_joint"
+    - "front_right_wheel_joint"
+  
+  # 物理参数（必须测量真实值）
+  wheel_separation: 0.78  # 左右轮组中心距离（单位：米）
+  wheel_radius: 0.2       # 轮子半径（单位：米）
+  
+  # 坐标系定义
+  base_frame_id: base_link
+  odom_frame_id: odom
+  
+  # 发布频率
+  publish_rate: 50
+  
+  # PID参数（初始建议值）
+  wheel_joints_config:
+    back_left_wheel_joint:  {p: 500.0, i: 5.0, d: 0.0}
+    back_right_wheel_joint: {p: 500.0, i: 5.0, d: 0.0}
+    front_left_wheel_joint:  {p: 500.0, i: 5.0, d: 0.0}
+    front_right_wheel_joint: {p: 500.0, i: 5.0, d: 0.0}
+
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
