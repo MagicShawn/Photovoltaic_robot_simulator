@@ -1,0 +1,9 @@
+<launch>
+    <node name="velocity_controller" 
+          pkg="robot_control" 
+          type="velocity_controller"
+          output="screen">
+        <param name="wheel_radius" value="0.2"/>
+        <param name="wheel_separation" value="0.78"/>
+    </node>
+</launch>
