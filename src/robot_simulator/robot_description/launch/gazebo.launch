@@ -31,7 +31,7 @@
         type="robot_state_publisher" output="screen"/>
   <param name="publish_frequency" type="double" value="30.0" />
   
-  <arg name="rviz" default="true"/>
-  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
+  <!-- <arg name="rviz" default="true"/>
+  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/> -->
 
 </launch>
