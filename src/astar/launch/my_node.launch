@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<launch>
+
+<arg name="map_min_x" default="-50.0"   />
+<arg name="map_min_y" default="-50.0"   />
+<arg name="map_width" default="4000"    />
+<arg name="map_height" default="4000"    />
+<arg name="resolution" default="0.025"  />
+
+<arg name="start_x" default="0.0" />
+<arg name="start_y" default="0.0" />
+<arg name="map_file" default="$(find astar)/map/mymap.yaml"  />
+
+    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+
+    <!-- <node pkg="grid_path_planner" name="my_map" type="my_map" output="screen" required="true" /> -->
+    <node pkg="astar" name="map_gen" type="map_gen" output="screen" required="true" />
+
+    <node pkg="astar" name="master" type="master" output="screen" required="true" >
+        
+        <!-- <remap from="~map" to="/my_map/custom_map" /> -->
+        <remap from="~map" to="/map_gen/global_map" />
+        <remap from="~goal" to="/move_base_simple/goal" />
+
+        <param name="map/min_cord_x"       value="$(arg map_min_x)" />
+        <param name="map/min_cord_y"       value="$(arg map_min_y)" />
+        <param name="map/map_width"       value="$(arg map_width)" />
+        <param name="map/map_height"       value="$(arg map_height)" />
+        <param name="map/resolution"       value="$(arg resolution)"/>
+
+        <param name="planning/st_cord_x" value="$(arg start_x)"/>
+        <param name="planning/st_cord_y" value="$(arg start_y)"/>
+
+    </node>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find astar)/rviz/my_node.rviz"/>
+
+</launch>

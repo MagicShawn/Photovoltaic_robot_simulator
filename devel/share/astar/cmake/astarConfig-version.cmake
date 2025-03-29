@@ -1,0 +1,1 @@
+/home/maxliang/Project/Mine/BiShe/pathPlanner_module_ws/devel/.private/astar/share/astar/cmake/astarConfig-version.cmake
