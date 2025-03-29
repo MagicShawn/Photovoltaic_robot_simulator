@@ -1,0 +1,7 @@
+velodyne_simulator/velodyne_gazebo_plugins
+/home/graduation/Work_space/new_simulator/devel/.private/velodyne_gazebo_plugins/cmake.lock /home/graduation/Work_space/new_simulator/devel/./cmake.lock
+/home/graduation/Work_space/new_simulator/devel/.private/velodyne_gazebo_plugins/lib/libgazebo_ros_velodyne_laser.so /home/graduation/Work_space/new_simulator/devel/lib/libgazebo_ros_velodyne_laser.so
+/home/graduation/Work_space/new_simulator/devel/.private/velodyne_gazebo_plugins/lib/libgazebo_ros_velodyne_gpu_laser.so /home/graduation/Work_space/new_simulator/devel/lib/libgazebo_ros_velodyne_gpu_laser.so
+/home/graduation/Work_space/new_simulator/devel/.private/velodyne_gazebo_plugins/lib/pkgconfig/velodyne_gazebo_plugins.pc /home/graduation/Work_space/new_simulator/devel/lib/pkgconfig/velodyne_gazebo_plugins.pc
+/home/graduation/Work_space/new_simulator/devel/.private/velodyne_gazebo_plugins/share/velodyne_gazebo_plugins/cmake/velodyne_gazebo_pluginsConfig.cmake /home/graduation/Work_space/new_simulator/devel/share/velodyne_gazebo_plugins/cmake/velodyne_gazebo_pluginsConfig.cmake
+/home/graduation/Work_space/new_simulator/devel/.private/velodyne_gazebo_plugins/share/velodyne_gazebo_plugins/cmake/velodyne_gazebo_pluginsConfig-version.cmake /home/graduation/Work_space/new_simulator/devel/share/velodyne_gazebo_plugins/cmake/velodyne_gazebo_pluginsConfig-version.cmake
