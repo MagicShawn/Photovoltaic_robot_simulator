@@ -1,8 +1,0 @@
-prefix=/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/devel/.private/astar
-
-Name: astar
-Description: Description of astar
-Version: 0.0.1
-Cflags: -I/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/include
-Libs: -L${prefix}/lib 
-Requires: 

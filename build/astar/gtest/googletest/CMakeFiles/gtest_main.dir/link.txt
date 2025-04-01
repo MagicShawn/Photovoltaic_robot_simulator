@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -std=c++11 -O3 -shared -Wl,-soname,libgtest_main.so -o ../lib/libgtest_main.so CMakeFiles/gtest_main.dir/src/gtest_main.cc.o  -Wl,-rpath,/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/build/astar/gtest/lib ../lib/libgtest.so -lpthread

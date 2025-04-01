@@ -1,6 +1,0 @@
-devel_space: /home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/devel
-install: false
-install_space: /home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/install
-profile: default
-source_space: /home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src
-workspace: /home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator

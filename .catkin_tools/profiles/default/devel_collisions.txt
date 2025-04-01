@@ -1,2 +1,0 @@
-/home/maxliang/Project/Mine/BiShe/pathPlanner_module_ws/devel/./cmake.lock 2
-/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/devel/./cmake.lock 1
