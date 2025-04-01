@@ -2,7 +2,7 @@
   <param name="robot_description" command="$(find xacro)/xacro $(find robot_description)/urdf/robot.xacro"/>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
   <arg name="world_name" value="$(find robot_description)/world/example.world"/>
-    <arg name="paused" value="true"/>
+    <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
     <arg name="headless" value="false"/>
