@@ -1,0 +1,8 @@
+[submodule "src/hardware_driver/livox_ros_driver/Livox-SDK"]
+	path = src/hardware_driver/livox_ros_driver/Livox-SDK
+	url = https://github.com/Livox-SDK/Livox-SDK.git
+	branch = master
+[submodule "src/velodyne_simulator"]
+	path = src/velodyne_simulator
+	url = https://bitbucket.org/DataspeedInc/velodyne_simulator.git
+	branch = master

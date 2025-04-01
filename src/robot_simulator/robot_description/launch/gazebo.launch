@@ -1,7 +1,11 @@
 <launch>
   <param name="robot_description" command="$(find xacro)/xacro $(find robot_description)/urdf/robot.xacro"/>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
+<<<<<<< HEAD
   <arg name="world_name" value="$(find robot_description)/world/example.world"/>
+=======
+  <!-- <arg name="world_name" value="$(find robot_description)/world/test.world"/> -->
+>>>>>>> 357842948654f229d842b60ac3a98132e96878e8
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
@@ -29,9 +33,11 @@
   <!-- 状态发布 -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" 
         type="robot_state_publisher" output="screen"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" 
+        type="joint_state_publisher" output="screen"/>
   <param name="publish_frequency" type="double" value="30.0" />
   
-  <!-- <arg name="rviz" default="true"/>
-  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/> -->
+  <!-- <arg name="rviz" default="true"/>-->
+  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
 
 </launch>

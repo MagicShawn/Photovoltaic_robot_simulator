@@ -55,9 +55,9 @@
   samples="440"
   min_range="0.5"
   max_range="130" 
-  gpu="false"
+  gpu="true"
 >
-  <origin xyz="0.0 0.0 1.103475" rpy="0 0 0" />
+  <origin xyz="0.0 0.0 1.153" rpy="0 0 0" />
 </xacro:VLP-16>
 
 <joint name="back_right_wheel_joint" type="continuous">
@@ -233,7 +233,11 @@
 <joint name="gps_link_joint" type="fixed">
   <parent link="base_link" />
   <child link="gps_link" />
+<<<<<<< HEAD
   <origin xyz="0.0 0.0 0.9" rpy="0 0 0" />  <!-- 适当设置位置 -->
+=======
+  <origin xyz="0.0 0.0 0.8" rpy="0 0 0" />  <!-- 适当设置位置 -->
+>>>>>>> 357842948654f229d842b60ac3a98132e96878e8
 </joint>
 
 
