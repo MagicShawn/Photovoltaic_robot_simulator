@@ -1,0 +1,93 @@
+[ 25%] [32mBuilding CXX object CMakeFiles/map_gen.dir/src/2d_map_gen.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/master.dir/src/visualize.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/master.dir/src/master.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/my_map.dir/src/my_map.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/master.dir/src/my_Astar.cpp.o[0m
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:40[m[K,
+                 from [01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:3[m[K:
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:[m[K In function ‘[01m[Kvoid rcvMapCallBack(const OccupancyGrid&)[m[K’:
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:52:27:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%ld[m[K’ expects argument of type ‘[01m[Klong int[m[K’, but argument 8 has type ‘[01m[Knav_msgs::MapMetaData_<std::allocator<void> >::_width_type[m[K’ {aka ‘[01m[Kunsigned int[m[K’} [[01;35m[K-Wformat=[m[K]
+   52 |     ROS_WARN_THROTTLE(1.0,[01;35m[K"[map_gen node] Map Width : %ld , Map Height : %ld , Resolution : %.3f ,inv_Resolution : %.3f , Size : %ld"[m[K,
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+   53 |         [32m[K_map.info.width[m[K,_map.info.height,_map.info.resolution,inv_resolution,_map.data.size());
+      |         [32m[K~~~~~~~~~~~~~~~[m[K    
+      |                   [32m[K|[m[K
+      |                   [32m[Knav_msgs::MapMetaData_<std::allocator<void> >::_width_type {aka unsigned int}[m[K
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:52:57:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   52 |     ROS_WARN_THROTTLE(1.0,"[map_gen node] Map Width : [01;36m[K%ld[m[K , Map Height : %ld , Resolution : %.3f ,inv_Resolution : %.3f , Size : %ld",
+      |                                                       [01;36m[K~~^[m[K
+      |                                                         [01;36m[K|[m[K
+      |                                                         [01;36m[Klong int[m[K
+      |                                                       [32m[K%d[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:40[m[K,
+                 from [01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:3[m[K:
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:52:27:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%ld[m[K’ expects argument of type ‘[01m[Klong int[m[K’, but argument 9 has type ‘[01m[Knav_msgs::MapMetaData_<std::allocator<void> >::_height_type[m[K’ {aka ‘[01m[Kunsigned int[m[K’} [[01;35m[K-Wformat=[m[K]
+   52 |     ROS_WARN_THROTTLE(1.0,[01;35m[K"[map_gen node] Map Width : %ld , Map Height : %ld , Resolution : %.3f ,inv_Resolution : %.3f , Size : %ld"[m[K,
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+   53 |         _map.info.width,[32m[K_map.info.height[m[K,_map.info.resolution,inv_resolution,_map.data.size());
+      |                         [32m[K~~~~~~~~~~~~~~~~[m[K
+      |                                   [32m[K|[m[K
+      |                                   [32m[Knav_msgs::MapMetaData_<std::allocator<void> >::_height_type {aka unsigned int}[m[K
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:52:76:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   52 |     ROS_WARN_THROTTLE(1.0,"[map_gen node] Map Width : %ld , Map Height : [01;36m[K%ld[m[K , Resolution : %.3f ,inv_Resolution : %.3f , Size : %ld",
+      |                                                                          [01;36m[K~~^[m[K
+      |                                                                            [01;36m[K|[m[K
+      |                                                                            [01;36m[Klong int[m[K
+      |                                                                          [32m[K%d[m[K
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:59:18:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kuint32_t[m[K’ {aka ‘[01m[Kunsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+   59 |     for(int y=0;[01;35m[Ky<m_height[m[K;++y){
+      |                 [01;35m[K~^~~~~~~~~[m[K
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:60:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kuint32_t[m[K’ {aka ‘[01m[Kunsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+   60 |         for(int x=0;[01;35m[Kx<m_width[m[K;++x){
+      |                     [01;35m[K~^~~~~~~~[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:40[m[K,
+                 from [01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:3[m[K:
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:70:27:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 8 has type ‘[01m[Kstd::vector<Eigen::Matrix<double, 3, 1> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wformat=[m[K]
+   70 |     ROS_WARN_THROTTLE(1.0,[01;35m[K"[map_gen node] there are %d obs points in the map"[m[K,[32m[Km_obs_points.size()[m[K);
+      |                           [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K [32m[K~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                                                [32m[K|[m[K
+      |                                                                                                [32m[Kstd::vector<Eigen::Matrix<double, 3, 1> >::size_type {aka long unsigned int}[m[K
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:70:54:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   70 |     ROS_WARN_THROTTLE(1.0,"[map_gen node] there are [01;36m[K%d[m[K obs points in the map",m_obs_points.size());
+      |                                                     [01;36m[K~^[m[K
+      |                                                      [01;36m[K|[m[K
+      |                                                      [01;36m[Kint[m[K
+      |                                                     [32m[K%ld[m[K
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/2d_map_gen.cpp:72:18:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<Eigen::Matrix<double, 3, 1> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+   72 |     for(int i=0;[01;35m[Ki<m_obs_points.size()[m[K;i++){
+      |                 [01;35m[K~^~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:40[m[K,
+                 from [01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/include/my_Astar.h:8[m[K,
+                 from [01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/master.cpp:1[m[K:
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/master.cpp:[m[K In function ‘[01m[Kvoid rcvPointCloudCallBack(const PointCloud2&)[m[K’:
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/master.cpp:26:14:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%ld[m[K’ expects argument of type ‘[01m[Klong int[m[K’, but argument 8 has type ‘[01m[Kint[m[K’ [[01;35m[K-Wformat=[m[K]
+   26 |     ROS_WARN([01;35m[K"[astar_node] there are %ld points in the cloud"[m[K , [32m[K(int)cloud.points.size()[m[K);
+      |              [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K   [32m[K~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                 [32m[K|[m[K
+      |                                                                 [32m[Kint[m[K
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/master.cpp:26:40:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   26 |     ROS_WARN("[astar_node] there are [01;36m[K%ld[m[K points in the cloud" , (int)cloud.points.size());
+      |                                      [01;36m[K~~^[m[K
+      |                                        [01;36m[K|[m[K
+      |                                        [01;36m[Klong int[m[K
+      |                                      [32m[K%d[m[K
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/my_Astar.cpp:[m[K In member function ‘[01m[Kvoid my_AstarPlanner::initGridMap(uint32_t, uint32_t, double)[m[K’:
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/my_Astar.cpp:72:18:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kconst uint32_t[m[K’ {aka ‘[01m[Kconst unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+   72 |     for(int x=0;[01;35m[Kx<_width[m[K;x++){
+      |                 [01;35m[K~^~~~~~~[m[K
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/my_Astar.cpp:74:22:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kconst uint32_t[m[K’ {aka ‘[01m[Kconst unsigned int[m[K’} [[01;35m[K-Wsign-compare[m[K]
+   74 |         for(int y=0;[01;35m[Ky<_height[m[K;y++){
+      |                     [01;35m[K~^~~~~~~~[m[K
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/my_Astar.cpp:[m[K In member function ‘[01m[Kdouble my_AstarPlanner::getHeu(GridNode* const&, GridNode* const&)[m[K’:
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/my_Astar.cpp:116:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kmd[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  116 |     double [01;35m[Kmd[m[K = dx + dy ;
+      |            [01;35m[K^~[m[K
+[01m[K/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/src/astar/src/my_Astar.cpp:120:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kdd[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  120 |     double [01;35m[Kdd[m[K = dx + dy + (sqrt(2.0)-2)*min(dx,dy);
+      |            [01;35m[K^~[m[K
+[ 75%] [32m[1mLinking CXX executable /home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/devel/.private/astar/lib/astar/my_map[0m
+[ 75%] Built target my_map
+[ 87%] [32m[1mLinking CXX executable /home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/devel/.private/astar/lib/astar/map_gen[0m
+[100%] [32m[1mLinking CXX executable /home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/devel/.private/astar/lib/astar/master[0m
+[100%] Built target map_gen
+[100%] Built target master

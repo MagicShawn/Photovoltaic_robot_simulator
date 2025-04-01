@@ -74,7 +74,9 @@
         "concepts": "cpp",
         "ranges": "cpp",
         "stop_token": "cpp",
-        "dense": "cpp"
+        "dense": "cpp",
+        "regex": "cpp",
+        "any": "cpp"
     },
     "cmake.sourceDirectory": "/home/maxliang/Project/Mine/BiShe/pathPlanner_module_ws/src/astar",
     "python.autoComplete.extraPaths": [

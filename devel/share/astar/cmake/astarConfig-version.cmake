@@ -1,1 +1,1 @@
-/home/maxliang/Project/Mine/BiShe/pathPlanner_module_ws/devel/.private/astar/share/astar/cmake/astarConfig-version.cmake
+/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/devel/.private/astar/share/astar/cmake/astarConfig-version.cmake

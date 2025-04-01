@@ -1,0 +1,8 @@
+prefix=/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/install
+
+Name: astar
+Description: Description of astar
+Version: 0.0.1
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

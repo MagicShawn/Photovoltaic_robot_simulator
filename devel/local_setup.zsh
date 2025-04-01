@@ -1,1 +1,1 @@
-/home/maxliang/Project/Mine/BiShe/pathPlanner_module_ws/devel/.private/catkin_tools_prebuild/local_setup.zsh
+/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/devel/.private/catkin_tools_prebuild/local_setup.zsh
