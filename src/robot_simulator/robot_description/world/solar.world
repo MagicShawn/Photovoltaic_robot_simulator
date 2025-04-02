@@ -1,0 +1,353 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <world name="complete_pv_world">
+    <!-- 基础环境 -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- 光伏阵列主模型 -->
+    <model name="pv_scan_system">
+      <!-- 基础面板 -->
+      <link name="base_panel">
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <pose>-2.80744 1.72845 0 0 0 0</pose>
+        <visual name="panel_vis">
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="panel_col">
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+
+      <!-- 克隆面板组 -->
+      <link name="clone_panel_1">
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <pose>-2.89588 3.0335 0 0 0 0</pose>
+        <!-- 相同物理参数和可视化配置 -->
+        <visual name="panel_vis">
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="panel_col">
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+
+      <link name="clone_panel_2">
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <pose>-2.72952 0.550722 0 0 0 0</pose>
+        <!-- 相同物理参数和可视化配置 -->
+        <visual name="panel_vis">
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="panel_col">
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+
+      <!-- 旋转面板组 -->
+      <link name="rot_panel_1">
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <pose>5.10086 0.233396 0 0 0 -0.334077</pose>
+        <!-- 相同物理参数和可视化配置 -->
+        <visual name="panel_vis">
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="panel_col">
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+      <link name="rot_panel_2">
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <pose>5.08434 1.49199 0 0 0 -0.334077</pose>
+        <!-- 相同物理参数和可视化配置 -->
+        <visual name="panel_vis">
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name="panel_col">
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+    </model>
+
+    <!-- 独立环境模型 -->
+    <model name="environment">
+      <!-- 橡树 -->
+      <!-- <model name="tree_1">
+        <static>true</static>
+        <pose>-7.33387 -6.90216 0 0 0 0</pose>
+        <link name="tree_link">
+          <collision name="tree_collision">
+            <geometry>
+              <mesh>
+                <uri>model://oak_tree/meshes/oak_tree.dae</uri>
+              </mesh>
+            </geometry>
+          </collision>
+          <visual name="tree_visual">
+            <geometry>
+              <mesh>
+                <uri>model://oak_tree/meshes/oak_tree.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model> -->
+
+      <!-- 行人 -->
+      <model name="pedestrian_1">
+        <pose>-4.64268 -5.66454 0 0 0 1.53443</pose>
+        <link name="person_link">
+          <inertial>
+            <mass>80</mass>
+            <inertia>
+              <ixx>27.82</ixx>
+              <iyy>24.88</iyy>
+              <izz>4.57</izz>
+            </inertia>
+          </inertial>
+          <collision name="person_col">
+            <geometry>
+              <mesh>
+                <uri>model://person_walking/meshes/walking.dae</uri>
+              </mesh>
+            </geometry>
+          </collision>
+          <visual name="person_vis">
+            <geometry>
+              <mesh>
+                <uri>model://person_walking/meshes/walking.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model>
+    </model>
+
+    <!-- 可视化配置 -->
+    <gui>
+      <camera name="observer">
+        <pose>16.7 -11 9.7  0 0.448 2.49</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+  </world>
+</sdf>
