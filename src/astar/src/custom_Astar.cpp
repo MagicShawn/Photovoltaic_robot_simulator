@@ -232,7 +232,7 @@ void my_AstarPlanner::AstarGraphSearch(const Eigen::Vector3d _st_pt,const Eigen:
 
                 if(neighbour_nodePtr->dir != current_nodePtr->dir){
                     // ROS_INFO("[planner] redirection node!");
-                    neighbour_nodePtr->gcost+=0.75; //redirection panel , should choose a appropriate value
+                    neighbour_nodePtr->gcost+=0.75; //redirection penal , should choose a appropriate value
                 }
 
                 neighbour_nodePtr->fcost = getHeu(neighbour_nodePtr,tar_nodePtr);
@@ -249,7 +249,7 @@ void my_AstarPlanner::AstarGraphSearch(const Eigen::Vector3d _st_pt,const Eigen:
 
                 if(neighbour_nodePtr->dir != current_nodePtr->dir){
                     // ROS_INFO("[planner] redirection node!");
-                    neighbour_nodePtr->gcost+=0.75; //redirection panel , should choose a appropriate value
+                    neighbour_nodePtr->gcost+=0.75; //redirection penal , should choose a appropriate value
                 }
 
                 if(cur_gcost < tmp_gcost){
