@@ -1,1 +1,0 @@
-/home/graduation/Work_space/Photovoltaic_robot_simulator/devel/./cmake.lock 15
