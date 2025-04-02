@@ -1,0 +1,606 @@
+<sdf version='1.7'>
+  <world name='complete_pv_world'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='pv_scan_system'>
+      <link name='base_panel'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <pose>-2.80744 1.72845 0 0 -0 0</pose>
+        <visual name='panel_vis'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='panel_col'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='clone_panel_1'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <pose>-2.89588 3.0335 0 0 -0 0</pose>
+        <visual name='panel_vis'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='panel_col'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='clone_panel_2'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <pose>-2.72952 0.550722 0 0 -0 0</pose>
+        <visual name='panel_vis'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='panel_col'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='rot_panel_1'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <pose>5.10086 0.233396 0 0 0 -0.334077</pose>
+        <visual name='panel_vis'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='panel_col'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='rot_panel_2'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <pose>5.08434 1.49199 0 0 0 -0.334077</pose>
+        <visual name='panel_vis'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='panel_col'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </ode>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='environment'>
+      <model name='tree_1'>
+        <static>1</static>
+        <pose>-7.33387 -6.90216 0 0 -0 0</pose>
+        <link name='tree_link'>
+          <collision name='tree_collision'>
+            <geometry>
+              <mesh>
+                <uri>model://oak_tree/meshes/oak_tree.dae</uri>
+              </mesh>
+            </geometry>
+            <max_contacts>10</max_contacts>
+            <surface>
+              <contact>
+                <ode/>
+              </contact>
+              <bounce/>
+              <friction>
+                <torsional>
+                  <ode/>
+                </torsional>
+                <ode/>
+              </friction>
+            </surface>
+          </collision>
+          <visual name='tree_visual'>
+            <geometry>
+              <mesh>
+                <uri>model://oak_tree/meshes/oak_tree.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+          <self_collide>0</self_collide>
+          <enable_wind>0</enable_wind>
+          <kinematic>0</kinematic>
+        </link>
+      </model>
+      <model name='pedestrian_1'>
+        <pose>-4.64268 -5.66454 0 0 -0 1.53443</pose>
+        <link name='person_link'>
+          <inertial>
+            <mass>80</mass>
+            <inertia>
+              <ixx>27.82</ixx>
+              <iyy>24.88</iyy>
+              <izz>4.57</izz>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyz>0</iyz>
+            </inertia>
+            <pose>0 0 0 0 -0 0</pose>
+          </inertial>
+          <collision name='person_col'>
+            <geometry>
+              <mesh>
+                <uri>model://person_walking/meshes/walking.dae</uri>
+              </mesh>
+            </geometry>
+            <max_contacts>10</max_contacts>
+            <surface>
+              <contact>
+                <ode/>
+              </contact>
+              <bounce/>
+              <friction>
+                <torsional>
+                  <ode/>
+                </torsional>
+                <ode/>
+              </friction>
+            </surface>
+          </collision>
+          <visual name='person_vis'>
+            <geometry>
+              <mesh>
+                <uri>model://person_walking/meshes/walking.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+          <self_collide>0</self_collide>
+          <enable_wind>0</enable_wind>
+          <kinematic>0</kinematic>
+        </link>
+      </model>
+    </model>
+    <gui fullscreen='0'>
+      <camera name='observer'>
+        <pose>8.21206 -0.010966 5.70559 0 0.628 2.93</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name='complete_pv_world'>
+      <sim_time>194 990000000</sim_time>
+      <real_time>420 131823479</real_time>
+      <wall_time>1743564736 203101777</wall_time>
+      <iterations>194990</iterations>
+      <model name='environment'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <model name='pedestrian_1'>
+          <pose>-4.64268 -5.66454 0 0 -0 1.53443</pose>
+          <scale>1 1 1</scale>
+          <link name='person_link'>
+            <pose>-4.64273 -5.66404 -0.02614 0.011291 -0.044957 1.53415</pose>
+            <velocity>0 0 0 0 -0 0</velocity>
+            <acceleration>0.00251 -0.012766 -0.007738 -0.54284 -0.083212 -0.003469</acceleration>
+            <wrench>0.200823 -1.02131 -0.619073 0 -0 0</wrench>
+          </link>
+        </model>
+        <model name='tree_1'>
+          <pose>-7.33387 -6.90216 0 0 -0 0</pose>
+          <scale>1 1 1</scale>
+          <link name='tree_link'>
+            <pose>-7.33387 -6.90216 0 0 -0 0</pose>
+            <velocity>0 0 0 0 -0 0</velocity>
+            <acceleration>0 0 0 0 -0 0</acceleration>
+            <wrench>0 0 0 0 -0 0</wrench>
+          </link>
+        </model>
+      </model>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='pv_scan_system'>
+        <pose>-0.001444 -1.12086 -0.00182 2e-06 3e-06 -1e-06</pose>
+        <scale>1 1 1</scale>
+        <link name='base_panel'>
+          <pose>-2.80888 0.607591 -0.001807 2e-06 3e-06 -1e-06</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.028803 0.001466 3.21633 -2.18633 -0.23691 3.14054</acceleration>
+          <wrench>-0.028803 0.001466 3.21633 0 -0 0</wrench>
+        </link>
+        <link name='clone_panel_1'>
+          <pose>-2.89732 1.91264 -0.001807 2e-06 4e-06 -1e-06</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.028525 0.000711 3.0911 -2.65437 -0.083508 -3.14145</acceleration>
+          <wrench>-0.028525 0.000711 3.0911 0 -0 0</wrench>
+        </link>
+        <link name='clone_panel_2'>
+          <pose>-2.73096 -0.570137 -0.001807 2e-06 4e-06 -1e-06</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.029447 0.001148 3.50582 -2.34389 -0.591533 3.14098</acceleration>
+          <wrench>-0.029447 0.001148 3.50582 0 -0 0</wrench>
+        </link>
+        <link name='rot_panel_1'>
+          <pose>5.09942 -0.887463 -0.001809 2e-06 -5e-06 -0.334078</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.027543 -0.011036 -3.21537 -3.02574 -0.477119 -3.14132</acceleration>
+          <wrench>0.027543 -0.011036 -3.21537 0 -0 0</wrench>
+        </link>
+        <link name='rot_panel_2'>
+          <pose>5.0829 0.371131 -0.001809 2e-06 -5e-06 -0.334078</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.026905 -0.010626 -3.38079 -2.87081 -0.859737 -3.14097</acceleration>
+          <wrench>0.026905 -0.010626 -3.38079 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='robot'>
+        <pose>-3.90411 -0.599097 0 -2e-06 0 0.014011</pose>
+        <scale>1 1 1</scale>
+        <link name='back_left_wheel'>
+          <pose>-4.11062 -0.210921 0.063999 -5e-06 -0.005642 0.014011</pose>
+          <velocity>-2.5e-05 -0.000331 0.005891 0.00517 -0.000389 -2e-06</velocity>
+          <acceleration>0.06386 -0.894442 13.0754 0.736856 -0.194611 -0.109553</acceleration>
+          <wrench>0.260646 -3.65072 53.3679 0 -0 0</wrench>
+        </link>
+        <link name='back_right_wheel'>
+          <pose>-4.09969 -0.990844 0.064001 2e-06 -0.003402 0.014011</pose>
+          <velocity>-3.1e-05 -0.000297 0.000876 0.005409 -0.000365 1.3e-05</velocity>
+          <acceleration>-0.018463 -0.835601 0.948015 1.27474 -0.138197 -0.126545</acceleration>
+          <wrench>-0.075359 -3.41056 3.86938 0 -0 0</wrench>
+        </link>
+        <link name='base_link'>
+          <pose>-3.90411 -0.599097 0 -2e-06 0 0.014011</pose>
+          <velocity>-5e-06 0.000134 0.003467 0.006411 -0.000351 3e-06</velocity>
+          <acceleration>0.014879 -1.28296 7.08622 2.60807 -0.605878 -0.086938</acceleration>
+          <wrench>0.201872 -17.4064 96.1416 0 -0 0</wrench>
+        </link>
+        <link name='front_left_wheel'>
+          <pose>-3.71066 -0.205316 0.063999 -5e-06 -0.005761 0.014011</pose>
+          <velocity>-2.7e-05 -0.000324 0.006073 0.005063 -0.000424 -5e-06</velocity>
+          <acceleration>0.059004 -0.922667 13.2504 0.65165 -0.229071 -0.106552</acceleration>
+          <wrench>0.24083 -3.76592 54.0824 0 -0 0</wrench>
+        </link>
+        <link name='front_right_wheel'>
+          <pose>-3.69973 -0.98524 0.064001 0 -0.00429 0.014011</pose>
+          <velocity>-2.8e-05 -0.000278 0.001067 0.005906 -0.000358 3.3e-05</velocity>
+          <acceleration>-0.015203 -0.845781 1.12554 2.20778 -0.116141 -0.111346</acceleration>
+          <wrench>-0.062052 -3.45211 4.59394 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+  </world>
+</sdf>

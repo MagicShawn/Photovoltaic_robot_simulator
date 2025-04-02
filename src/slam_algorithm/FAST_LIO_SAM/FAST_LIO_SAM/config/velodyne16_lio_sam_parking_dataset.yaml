@@ -1,7 +1,7 @@
 common:
-    lid_topic:  /points_raw     #"/velodyne_points"
-    imu_topic:  /imu_raw         #"/imu/data"
-    gnss_topic:  /gps/fix         #"/imu/data"
+    lid_topic:  /velodyne_points     #"/velodyne_points"
+    imu_topic:  /imu/data         #"/imu/data"
+    gnss_topic:  /navsat/fix         #"/imu/data"
     time_sync_en: false         # ONLY turn on when external time synchronization is really not possible
 #NCLT
 #    lid_topic: "/points_raw"

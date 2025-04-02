@@ -233,11 +233,7 @@
 <joint name="gps_link_joint" type="fixed">
   <parent link="base_link" />
   <child link="gps_link" />
-<<<<<<< HEAD
   <origin xyz="0.0 0.0 0.9" rpy="0 0 0" />  <!-- 适当设置位置 -->
-=======
-  <origin xyz="0.0 0.0 0.8" rpy="0 0 0" />  <!-- 适当设置位置 -->
->>>>>>> 357842948654f229d842b60ac3a98132e96878e8
 </joint>
 
 
