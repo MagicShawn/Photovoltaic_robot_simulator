@@ -6,3 +6,8 @@
 	path = src/velodyne_simulator
 	url = https://bitbucket.org/DataspeedInc/velodyne_simulator.git
 	branch = master
+[submodule "src/slam_algorithm/FAST_LIO"]
+	path = src/slam_algorithm/FAST_LIO
+	url = https://github.com/hku-mars/FAST_LIO.git
+	branch = master
+	
