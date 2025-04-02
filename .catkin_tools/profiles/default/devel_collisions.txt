@@ -1,8 +1,1 @@
-<<<<<<< HEAD
-/home/graduation/Work_space/new_simulator/devel/./cmake.lock 24
-/home/graduation/Work_space/Photovoltaic_robot_simulator/devel/./cmake.lock 25
-=======
-/home/graduation/Work_space/new_simulator/devel/./cmake.lock 21
-/home/graduation/Work_space/Photovoltaic_robot_simulator/devel/./cmake.lock 11
-/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/devel/./cmake.lock 9
->>>>>>> 357842948654f229d842b60ac3a98132e96878e8
+/home/graduation/Work_space/Photovoltaic_robot_simulator/devel/./cmake.lock 15

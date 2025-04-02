@@ -1,2 +1,0 @@
-velodyne_simulator/velodyne_simulator
-/home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/devel/.private/velodyne_simulator/cmake.lock /home/maxliang/Project/Mine/BiShe/Photovoltaic_robot_simulator/devel/./cmake.lock
