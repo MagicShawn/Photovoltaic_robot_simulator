@@ -64,10 +64,6 @@ bool my_AstarPlanner::init(const double & _resolution,const double & _min_cord_x
 }
 
 void my_AstarPlanner::initGridMap(const uint32_t _width,const uint32_t _height,const double _resolution){
-    // resolution = _resolution;
-    // inv_resolution = 1.0/_resolution;
-    // max_index_x = _width;
-    // max_index_y = _height;
     GridMap = new GridNodePtr* [_width];
     for(int x=0;x<_width;x++){
         GridMap[x] = new GridNodePtr [_height];
@@ -110,6 +106,9 @@ double my_AstarPlanner::getHeu(const GridNodePtr & _node1Ptr,const GridNodePtr &
     Eigen::Vector3i node1_idx = _node1Ptr->index;
     Eigen::Vector3i node2_idx = _node2Ptr->index;
 
+    char node1_dir = _node1Ptr->dir;
+    char node2_dir = _node2Ptr->dir;
+
     double dx = abs(node2_idx.x() - node1_idx.x());
     double dy = abs(node2_idx.y() - node1_idx.y());
     //manhatton
@@ -119,7 +118,13 @@ double my_AstarPlanner::getHeu(const GridNodePtr & _node1Ptr,const GridNodePtr &
     //dia
     double dd = dx + dy + (sqrt(2.0)-2)*min(dx,dy);
 
-    double h = ed;
+    double redir_penal = 0.0;
+    if(node1_dir != node2_dir){
+        ROS_INFO("[planner] redirection!");
+        redir_penal = 0.5;
+        }
+
+    double h = ed + redir_penal;
     #define _use_Tie_breaker 0//tie breaker
     #if _use_Tie_breaker
         {
@@ -133,8 +138,9 @@ double my_AstarPlanner::getHeu(const GridNodePtr & _node1Ptr,const GridNodePtr &
 }
 
 //refresh neighbour node
-void my_AstarPlanner::getNeighbour(const GridNodePtr & _current_nodePtr ,vector<pair<GridNodePtr,double>> & _neighbourNodeSets){
+void my_AstarPlanner::getNeighbour(const GridNodePtr & _current_nodePtr ,vector<pair<GridNodePtr,double>> & _neighbourNodeSets,vector<char> & _directionSets){
     _neighbourNodeSets.clear();
+    _directionSets.clear();
     // ROS_WARN("[planner] update Neighbour node");
 
     Eigen::Vector3i tmpIdx = _current_nodePtr->index;
@@ -145,6 +151,9 @@ void my_AstarPlanner::getNeighbour(const GridNodePtr & _current_nodePtr ,vector<
             if(canbeNeighbour(nbr_x,nbr_y)){
                 double edgeCost = 1.0;
                 _neighbourNodeSets.push_back(make_pair(GridMap[nbr_x][nbr_y],edgeCost));
+                if(i == -1){_directionSets.push_back('L');}
+                else if(i == 1){_directionSets.push_back('R');}
+                ROS_INFO("[planner] neighbour node %d , %d ,dir is : %c ",nbr_x,nbr_y,_directionSets.back());
             }
         }
     }
@@ -155,6 +164,9 @@ void my_AstarPlanner::getNeighbour(const GridNodePtr & _current_nodePtr ,vector<
             if(canbeNeighbour(nbr_x,nbr_y)){
                 double edgeCost = 1.0;
                 _neighbourNodeSets.push_back(make_pair(GridMap[nbr_x][nbr_y],edgeCost));
+                if(i == -1){_directionSets.push_back('D');}
+                else if(i == 1){_directionSets.push_back('U');}
+                ROS_INFO("[planner] neighbour node %d , %d ,dir is : %c ",nbr_x,nbr_y,_directionSets.back());
             }
         }
     }
@@ -181,22 +193,24 @@ void my_AstarPlanner::AstarGraphSearch(const Eigen::Vector3d _st_pt,const Eigen:
     st_nodePtr->fcost = getHeu(st_nodePtr,tar_nodePtr);
 
     st_nodePtr->id = 1;
+    st_nodePtr->dir = 'R';
 
     openList.insert( make_pair(st_nodePtr->fcost , st_nodePtr));
 
     // vector<GridNode> neighbourNodeSets;
     // vector<double> edgeCostSets;
     vector<pair<GridNodePtr,double>> neighbourNodeSets;
+    vector<char> directionSets;
 
     while( !openList.empty()){
-        // ROS_INFO("[planner] openlist size : %ld ",int(openList.size()) );
-        // for (auto it = openList.begin(); it != openList.end(); ++it) {
-        //     std::cout << "Fcost: " << it->first 
-        //               << ", GridNode idx: " << it->second->index.x() << " , "<< it->second->index.y()
-        //                << std::endl;
-        // }
+        ROS_INFO("[planner] openlist size : %ld ",int(openList.size()) );
+        for (auto it = openList.begin(); it != openList.end(); ++it) {
+            std::cout << "Fcost: " << it->first 
+                      << ", GridNode idx: " << it->second->index.x() << " , "<< it->second->index.y()
+                       << std::endl;
+        }
         
-        current_nodePtr = openList.begin()->second;//取出当前f值
+        current_nodePtr = openList.begin()->second;//取出当前f值最小的节点
         // ROS_INFO("[planner] current node idx : %d , %d ",current_nodePtr->index.x(),current_nodePtr->index.y());
         openList.begin()->second->id = -1 ;
         // ROS_INFO("[planner] current node id %d : openlist node id : %d , start node id : %d",current_nodePtr->id,openList.begin()->second->id,st_nodePtr->id);
@@ -205,18 +219,21 @@ void my_AstarPlanner::AstarGraphSearch(const Eigen::Vector3d _st_pt,const Eigen:
         if(current_nodePtr->index == tar_idx){
             ros::Time end_time = ros::Time::now();
             term_nodePtr = current_nodePtr;
-            ROS_WARN("[A*]{sucess}  Time in A*  is %f ms, path cost if %f m", (end_time - st_time).toSec(), current_nodePtr->fcost * resolution);
+            ROS_WARN("[A*]{sucess}  Time in A*  is %f ms, path cost is %f m", (end_time - st_time).toSec()*1000, current_nodePtr->fcost * resolution);
             return;
         }
         //update neighbour
-        getNeighbour(current_nodePtr,neighbourNodeSets);
+        getNeighbour(current_nodePtr,neighbourNodeSets,directionSets);
         //
         for(int i=0;i < (int)neighbourNodeSets.size();i++){
             neighbour_nodePtr = neighbourNodeSets[i].first;
-            // ROS_INFO("[planner] neighbour node idx : %d , %d ",neighbour_nodePtr->index.x(),neighbour_nodePtr->index.y());
+            ROS_INFO("[planner] neighbour node idx : %d , %d ",neighbour_nodePtr->index.x(),neighbour_nodePtr->index.y());
+            ROS_INFO("[planner] neighbour direction set size: %d ", directionSets.size());
 
             if(neighbour_nodePtr->id == 0){//new node
-                // ROS_INFO("[planner] visited node id = 0");
+                ROS_INFO("[planner] neighbour node dir is : %c ",directionSets[i]);
+                neighbour_nodePtr->dir = directionSets[i];
+
                 neighbour_nodePtr->parent = current_nodePtr;
                 neighbour_nodePtr->gcost = current_nodePtr->gcost + neighbourNodeSets[i].second;
                 neighbour_nodePtr->fcost = getHeu(neighbour_nodePtr,tar_nodePtr);
@@ -225,7 +242,8 @@ void my_AstarPlanner::AstarGraphSearch(const Eigen::Vector3d _st_pt,const Eigen:
                 continue;
             }
             else if(neighbour_nodePtr->id == 1){//existed node , update it
-                // ROS_INFO("[planner] visited node id = 1");
+                neighbour_nodePtr->dir = directionSets[i];
+
                 double tmp_gcost = neighbour_nodePtr->gcost;
                 double cur_gcost = current_nodePtr->gcost + neighbourNodeSets[i].second;
                 if(cur_gcost < tmp_gcost){

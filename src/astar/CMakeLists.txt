@@ -69,7 +69,7 @@ target_link_libraries(my_map
 add_executable(master
     src/visualize.cpp
     src/master.cpp
-    src/my_Astar.cpp
+    src/custom_Astar.cpp
 )
 
 target_link_libraries(master

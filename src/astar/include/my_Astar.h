@@ -14,9 +14,11 @@
 #include <pcl/point_types.h>
 #include <math.h>
 #include <vector>
+#include <string>
 #include <set>
 
 using namespace std;
+
 
 class my_AstarPlanner{
 private:
@@ -32,7 +34,7 @@ private:
 protected:
     bool canbeNeighbour(const int & _idx_x , const int & _idx_y);
     double getHeu(const GridNodePtr & _node1Ptr,const GridNodePtr & _node2Ptr);
-    void getNeighbour(const GridNodePtr & _current_nodePtr ,vector<pair<GridNodePtr,double>> & _neighbourNodeSets);
+    void getNeighbour(const GridNodePtr & _current_nodePtr ,vector<pair<GridNodePtr,double>> & _neighbourNodeSets,vector<char> & _directionSets);
 
     Eigen::Vector3i cord2index(const Eigen::Vector3d & pt);
     Eigen::Vector3d index2cord(const Eigen::Vector3i _index);
