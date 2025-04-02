@@ -66,6 +66,15 @@ target_link_libraries(my_map
     ${PCL_LIBRARIES}
 )
 
+add_executable(solarpanel_map
+    src/solarpanel_map.cpp
+)
+
+target_link_libraries(solarpanel_map
+    ${catkin_LIBRARIES}
+    ${PCL_LIBRARIES}
+)
+
 add_executable(master
     src/visualize.cpp
     src/master.cpp
@@ -73,6 +82,17 @@ add_executable(master
 )
 
 target_link_libraries(master
+    ${catkin_LIBRARIES}
+    ${PCL_LIBRARIES}
+)
+
+add_executable(custom_master
+    src/visualize.cpp
+    src/custom_master.cpp
+    src/custom_Astar.cpp
+)
+
+target_link_libraries(custom_master
     ${catkin_LIBRARIES}
     ${PCL_LIBRARIES}
 )

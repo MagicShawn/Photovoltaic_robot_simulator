@@ -4,7 +4,7 @@ void visGridPath(const std::vector<Eigen::Vector3d> & _path,ros::Publisher & _vi
     pcl::PointCloud<pcl::PointXYZ> path_cloud;
     sensor_msgs::PointCloud2 ros_path_cloud;
 
-    for(auto it = _path.begin();it != _path.end();++it){
+    for(auto it = _path.begin();it != _path.end();it++){
         pcl::PointXYZ pt;
         pt.x = it->x();
         pt.y = it->y();

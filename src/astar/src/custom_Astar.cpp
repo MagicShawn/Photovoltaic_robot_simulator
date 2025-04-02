@@ -118,13 +118,7 @@ double my_AstarPlanner::getHeu(const GridNodePtr & _node1Ptr,const GridNodePtr &
     //dia
     double dd = dx + dy + (sqrt(2.0)-2)*min(dx,dy);
 
-    double redir_penal = 0.0;
-    if(node1_dir != node2_dir){
-        ROS_INFO("[planner] redirection!");
-        redir_penal = 0.5;
-        }
-
-    double h = ed + redir_penal;
+    double h = ed;
     #define _use_Tie_breaker 0//tie breaker
     #if _use_Tie_breaker
         {
@@ -153,7 +147,7 @@ void my_AstarPlanner::getNeighbour(const GridNodePtr & _current_nodePtr ,vector<
                 _neighbourNodeSets.push_back(make_pair(GridMap[nbr_x][nbr_y],edgeCost));
                 if(i == -1){_directionSets.push_back('L');}
                 else if(i == 1){_directionSets.push_back('R');}
-                ROS_INFO("[planner] neighbour node %d , %d ,dir is : %c ",nbr_x,nbr_y,_directionSets.back());
+                // ROS_INFO("[planner] neighbour node %d , %d ,dir is : %c ",nbr_x,nbr_y,_directionSets.back());
             }
         }
     }
@@ -166,7 +160,7 @@ void my_AstarPlanner::getNeighbour(const GridNodePtr & _current_nodePtr ,vector<
                 _neighbourNodeSets.push_back(make_pair(GridMap[nbr_x][nbr_y],edgeCost));
                 if(i == -1){_directionSets.push_back('D');}
                 else if(i == 1){_directionSets.push_back('U');}
-                ROS_INFO("[planner] neighbour node %d , %d ,dir is : %c ",nbr_x,nbr_y,_directionSets.back());
+                // ROS_INFO("[planner] neighbour node %d , %d ,dir is : %c ",nbr_x,nbr_y,_directionSets.back());
             }
         }
     }
@@ -203,12 +197,12 @@ void my_AstarPlanner::AstarGraphSearch(const Eigen::Vector3d _st_pt,const Eigen:
     vector<char> directionSets;
 
     while( !openList.empty()){
-        ROS_INFO("[planner] openlist size : %ld ",int(openList.size()) );
-        for (auto it = openList.begin(); it != openList.end(); ++it) {
-            std::cout << "Fcost: " << it->first 
-                      << ", GridNode idx: " << it->second->index.x() << " , "<< it->second->index.y()
-                       << std::endl;
-        }
+        // ROS_INFO("[planner] openlist size : %ld ",int(openList.size()) );
+        // for (auto it = openList.begin(); it != openList.end(); ++it) {
+        //     std::cout << "Fcost: " << it->first 
+        //               << ", GridNode idx: " << it->second->index.x() << " , "<< it->second->index.y()
+        //                << std::endl;
+        // }123456666666666666666666
         
         current_nodePtr = openList.begin()->second;//取出当前f值最小的节点
         // ROS_INFO("[planner] current node idx : %d , %d ",current_nodePtr->index.x(),current_nodePtr->index.y());
@@ -227,25 +221,37 @@ void my_AstarPlanner::AstarGraphSearch(const Eigen::Vector3d _st_pt,const Eigen:
         //
         for(int i=0;i < (int)neighbourNodeSets.size();i++){
             neighbour_nodePtr = neighbourNodeSets[i].first;
-            ROS_INFO("[planner] neighbour node idx : %d , %d ",neighbour_nodePtr->index.x(),neighbour_nodePtr->index.y());
-            ROS_INFO("[planner] neighbour direction set size: %d ", directionSets.size());
+            // ROS_INFO("[planner] neighbour node idx : %d , %d ",neighbour_nodePtr->index.x(),neighbour_nodePtr->index.y());
 
             if(neighbour_nodePtr->id == 0){//new node
-                ROS_INFO("[planner] neighbour node dir is : %c ",directionSets[i]);
+                // ROS_INFO("[planner] neighbour node dir is : %c ",directionSets[i]);
                 neighbour_nodePtr->dir = directionSets[i];
 
                 neighbour_nodePtr->parent = current_nodePtr;
                 neighbour_nodePtr->gcost = current_nodePtr->gcost + neighbourNodeSets[i].second;
+
+                if(neighbour_nodePtr->dir != current_nodePtr->dir){
+                    // ROS_INFO("[planner] redirection node!");
+                    neighbour_nodePtr->gcost+=0.75; //redirection panel , should choose a appropriate value
+                }
+
                 neighbour_nodePtr->fcost = getHeu(neighbour_nodePtr,tar_nodePtr);
                 neighbour_nodePtr->id = 1;
                 openList.insert(make_pair(neighbour_nodePtr->fcost,neighbour_nodePtr));
                 continue;
             }
             else if(neighbour_nodePtr->id == 1){//existed node , update it
+                // ROS_INFO("[planner] neighbour node dir is : %c ",directionSets[i]);
                 neighbour_nodePtr->dir = directionSets[i];
 
                 double tmp_gcost = neighbour_nodePtr->gcost;
                 double cur_gcost = current_nodePtr->gcost + neighbourNodeSets[i].second;
+
+                if(neighbour_nodePtr->dir != current_nodePtr->dir){
+                    // ROS_INFO("[planner] redirection node!");
+                    neighbour_nodePtr->gcost+=0.75; //redirection panel , should choose a appropriate value
+                }
+
                 if(cur_gcost < tmp_gcost){
                     neighbour_nodePtr->parent = current_nodePtr;
                     neighbour_nodePtr->gcost = cur_gcost;
