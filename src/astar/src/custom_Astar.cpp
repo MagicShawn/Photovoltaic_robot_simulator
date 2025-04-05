@@ -106,9 +106,6 @@ double my_AstarPlanner::getHeu(const GridNodePtr & _node1Ptr,const GridNodePtr &
     Eigen::Vector3i node1_idx = _node1Ptr->index;
     Eigen::Vector3i node2_idx = _node2Ptr->index;
 
-    char node1_dir = _node1Ptr->dir;
-    char node2_dir = _node2Ptr->dir;
-
     double dx = abs(node2_idx.x() - node1_idx.x());
     double dy = abs(node2_idx.y() - node1_idx.y());
     //manhatton
