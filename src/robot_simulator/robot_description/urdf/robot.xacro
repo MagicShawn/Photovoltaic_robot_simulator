@@ -52,14 +52,14 @@
   name="velodyne" 
   topic="/velodyne_points" 
   hz="10" 
-  samples="440"
+  samples="880"
   min_range="0.5"
   max_range="130" 
   gpu="true"
 >
   <origin xyz="0.0 0.0 1.153" rpy="0 0 0" />
 </xacro:VLP-16>
-
+<!-- 加载驱动轮模型  -->
 <joint name="back_right_wheel_joint" type="continuous">
   <origin xyz="-0.201052 -0.388969 0.064" rpy="0 0 0"/>
   <parent link="base_link"/>

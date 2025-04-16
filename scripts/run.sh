@@ -1,12 +1,13 @@
 # 启动机器人人仿真
 roslaunch robot_description gazebo.launch
 
-roslaunch robot_description controller.launch
+roslaunch robot_control velocity_controller.launch
 
 # 启动fastlio
 roslaunch fast_lio mapping_velodyne.launch
 # 启动fastlio_sam
 roslaunch fast_lio_sam mapping_velodyne16_lio_sam_parking_dataset.launch
+roslaunch fast_lio_sam mapping_solar_robot.launch
 
 # move control
 roslaunch robot_control velocity_controller.launch 

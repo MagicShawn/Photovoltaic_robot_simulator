@@ -31,13 +31,13 @@ mapping:
     det_range:     100.0
     extrinsic_est_en:  true      # true: enable the online estimation of IMU-LiDAR extrinsic,
     extrinsic_T: [ 0, 0, 0]
-    extrinsic_R: [ 0, 1, 0, 
-                   1, 0, 0, 
+    extrinsic_R: [ 0, -1, 0, 
+                   -1, 0, 0, 
                    0, 0, 1]
 
     extrinT_Gnss2Lidar: [ 0, 0, 0]
-    extrinR_Gnss2Lidar: [ 1, 0, 0, 
-                   0, 1, 0, 
+    extrinR_Gnss2Lidar: [ 0, 1, 0, 
+                   1, 0, 0, 
                    0, 0, 1]
 publish:
     path_en:  true
@@ -80,7 +80,7 @@ historyKeyframeFitnessScore: 0.3              # icp threshold, the smaller the b
 
 # GPS Settings
 useImuHeadingInitialization: true           # if using GPS data, set to "true"
-useGpsElevation: false                      # if GPS elevation is bad, set to "false"
+useGpsElevation: true                      # if GPS elevation is bad, set to "false"
 gpsCovThreshold: 2.0                        # m^2, threshold for using GPS data
 poseCovThreshold: 0 #25.0                      # m^2, threshold for using GPS data  位姿协方差阈值 from isam2
 

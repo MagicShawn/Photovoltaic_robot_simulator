@@ -28,7 +28,7 @@
         <visual name="panel_vis">
           <geometry>
             <mesh>
-              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <uri>file:///home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -42,7 +42,7 @@
         <collision name="panel_col">
           <geometry>
             <mesh>
-              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <uri>file:///home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -84,7 +84,7 @@
         <visual name="panel_vis">
           <geometry>
             <mesh>
-              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <uri>file:///home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -98,7 +98,7 @@
         <collision name="panel_col">
           <geometry>
             <mesh>
-              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <uri>file:///home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -139,7 +139,7 @@
         <visual name="panel_vis">
           <geometry>
             <mesh>
-              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <uri>file:///home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -153,7 +153,7 @@
         <collision name="panel_col">
           <geometry>
             <mesh>
-              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <uri>file:///home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -195,7 +195,7 @@
         <visual name="panel_vis">
           <geometry>
             <mesh>
-              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <uri>file:///home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -209,7 +209,7 @@
         <collision name="panel_col">
           <geometry>
             <mesh>
-              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <uri>file:///home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -249,7 +249,7 @@
         <visual name="panel_vis">
           <geometry>
             <mesh>
-              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <uri>file:///home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -263,7 +263,7 @@
         <collision name="panel_col">
           <geometry>
             <mesh>
-              <uri>file:///home/graduation/Work_space/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
+              <uri>file:///home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_description/meshes/solarpanelarray2.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -287,6 +287,127 @@
         </collision>
       </link>
     </model>
+    
+    <model name='with_wall'>
+    <pose>-0.005476 0.200665 0 0 -0 0</pose>
+    <link name='Wall_16'>
+      <collision name='Wall_16_Collision'>
+        <geometry>
+          <box>
+            <size>23 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_16_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>23 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <pose>-13.675 -0.125 0 0 -0 -1.5708</pose>
+    </link>
+    <link name='Wall_18'>
+      <collision name='Wall_18_Collision'>
+        <geometry>
+          <box>
+            <size>27.5 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_18_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>27.5 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <pose>-0 -11.55 0 0 -0 0</pose>
+    </link>
+    <link name='Wall_19'>
+      <collision name='Wall_19_Collision'>
+        <geometry>
+          <box>
+            <size>23.25 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_19_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>23.25 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <pose>13.675 -0 0 0 -0 1.5708</pose>
+    </link>
+    <link name='Wall_20'>
+      <collision name='Wall_20_Collision'>
+        <geometry>
+          <box>
+            <size>27.5 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_20_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>27.5 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <pose>-0 11.55 0 0 -0 3.14159</pose>
+    </link>
+    <static>1</static>
+  </model>
 
     <!-- 独立环境模型 -->
     <model name="environment">
@@ -313,7 +434,7 @@
       </model> -->
 
       <!-- 行人 -->
-      <model name="pedestrian_1">
+      <!-- <model name="pedestrian_1">
         <pose>-4.64268 -5.66454 0 0 0 1.53443</pose>
         <link name="person_link">
           <inertial>
@@ -339,7 +460,7 @@
             </geometry>
           </visual>
         </link>
-      </model>
+      </model>-->
     </model>
 
     <!-- 可视化配置 -->

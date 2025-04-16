@@ -1,5 +1,5 @@
 <launch>
-<rosparam file="$(find robot_description)/launch/controller.yaml" command="load" ns="/robot"/>
+<rosparam file="$(find robot_description)/config/controller.yaml" command="load" ns="/robot"/>
 <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="back_right_velocity_controller back_left_velocity_controller front_left_velocity_controller front_right_velocity_controller joint_state_controller "/>
 <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
   <remap from="/joint_states" to="/robot/joint_states"/>
