@@ -1,0 +1,7 @@
+<launch>
+    
+
+    <node name="waypoint_path_planner" pkg="mvbs_nav" type="get_plan_node" output="screen">
+        <rosparam file="$(find mvbs_nav)/config/waypoints_3.yaml" command="load"/>
+    </node>
+</launch>

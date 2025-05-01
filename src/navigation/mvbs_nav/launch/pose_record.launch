@@ -1,0 +1,4 @@
+<launch>
+  <node name="get_pose" pkg="mvbs_nav" type="get_pose.py" output="screen"/>
+
+</launch>

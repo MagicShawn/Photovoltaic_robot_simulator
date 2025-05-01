@@ -1,0 +1,16 @@
+EBandPlannerROS:
+
+  # 基本设置
+  odom_topic: odom
+  map_frame: map  # 或 base_link，如果你的定位是相对位姿
+
+  holonomic_robot: true                        # 关键！声明支持全向运动
+  max_vel_x: 1.2                               # 更高线速度
+  max_vel_theta: 1.8                           # 更高角速度
+  acc_lim_x: 3.5                               # 更高线加速度
+  acc_lim_theta: 4.5                           # 更高角加速度
+  num_samples: 60                              # 增加采样点
+  sample_dist: 0.2                             # 更密集的采样
+  weight_kinematics: 0.7                       # 降低运动学约束权重
+  weight_optimization: 0.4                     # 提高路径优化权重
+  sim_granularity: 0.01                        # 更精细的仿真步长

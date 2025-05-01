@@ -1,8 +1,14 @@
-shutdown_costmaps: false
-controller_frequency: 10.0
-planner_patience: 5.0
-controller_patience: 15.0
+#base_global_planner: navfn/NavfnROS
+#base_global_planner: global_planner/GlobalPlanner
+#base_local_planner: base_local_planner/TrajectoryPlannerROS
+#base_local_planner: dwa_local_planner/DWAPlannerROS
+controller_frequency: 20.0  # default 20.0
+planner_patience: 10.0 # 在执行空间清理操作之前，计划程序将等待多长时间（以秒为单位）以尝试找到有效的规划结果.
+controller_patience: 15.0 
 conservative_reset_dist: 3.0
-planner_frequency: 5.0
-oscillation_timeout: 10.0
-oscillation_distance: 0.2
+recovery_behavior_enabled: true #  是否启用move_base的恢复行为以尝试重置空间。
+clearing_rotation_allowed: false #  重置空间时旋转
+shutdown_costmaps: false 
+oscillation_timeout: 10.0 # 在执行恢复行为之前允许振荡的时间（以秒为单位）。值 0.0 对应于无限超时
+oscillation_distance: 0.05 # 机器人必须移动多远才能被认为是不振荡的。将距离移动到此距离会将计时器计数重置为 ~oscillation_timeout
+planner_frequency: 5.0 # 运行全局规划循环的速率（以 Hz 为单位）。如果频率设置为 0.0，则全局规划器将仅在收到新目标或本地规划器报告其路径被阻止时运行

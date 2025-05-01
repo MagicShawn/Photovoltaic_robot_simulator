@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<gazebo>
+    <!-- <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    </plugin> -->
+
+    <plugin name="nexus_ros_force_based_move" filename="libnexus_ros_force_based_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>25.0</odometryRate>
+      <robotBaseFrame>body</robotBaseFrame>
+      <cmdVelTimeOut>0.25</cmdVelTimeOut>
+      <publishOdometryTf>0</publishOdometryTf>
+      <yaw_velocity_p_gain>1.0</yaw_velocity_p_gain>
+      <x_velocity_p_gain>100.0</x_velocity_p_gain>
+      <y_velocity_p_gain>100.0</y_velocity_p_gain>
+      <max_x_velocity>0.6</max_x_velocity>
+      <max_y_velocity>0.6</max_y_velocity>
+      <max_yaw_velocity>0.5</max_yaw_velocity>
+    </plugin>
+</gazebo>
+
+<gazebo reference="body">
+  <material>${body_color}</material>
+  <mu1>10</mu1>
+  <mu2>10</mu2>
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+  <velocity_decay>
+    <linear>0.01</linear>
+    <angular>0.005</angular>
+  </velocity_decay>
+</gazebo>
+
+<gazebo reference="back_right_wheel">
+  <material>${body_color}</material>
+  <mu1>0.0</mu1>
+  <mu2>0.0</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="back_left_wheel">
+  <material>${body_color}</material>
+  <mu1>0.0</mu1>
+  <mu2>0.0</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="front_left_wheel">
+  <material>${body_color}</material>
+  <mu1>0.0</mu1>
+  <mu2>0.0</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="front_right_wheel">
+  <material>${body_color}</material>
+  <mu1>0.0</mu1>
+  <mu2>0.0</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="imu_link">
+  <sensor name="imu_sensor" type="imu">
+    <always_on>true</always_on>
+    <update_rate>200</update_rate>  <!-- 数据更新频率（Hz） -->
+    <visualize>true</visualize>     <!-- 在 Gazebo 中显示 IMU -->
+    <imu>
+      <noise>
+        <!-- 加速度计噪声模型 -->
+        <type>gaussian</type>
+        <rate>
+          <mean>0.0</mean>
+          <stddev>0.001</stddev>  <!-- 标准偏差 -->
+        </rate>
+        <accel>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </accel>
+      </noise>
+    </imu>
+    <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+      <topicName>/imu/data</topicName>       <!-- 发布的 ROS 话题 -->
+      <bodyName>imu_link</bodyName>          <!-- IMU 的链接名称 -->
+      <updateRateHZ>100</updateRateHZ>       <!-- 与传感器更新率一致 -->
+      <gaussianNoise>0.001</gaussianNoise>   <!-- 高斯噪声 -->
+      <frameName>imu_link</frameName>         <!-- 坐标系名称 --> 
+      <xyzOffset>0 0 0</xyzOffset>  <!-- x,y,z方向偏移 -->
+      <rpyOffset>0 0 0</rpyOffset>  
+    </plugin>
+  </sensor>
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo>
+  <plugin name="gps_controller" filename="libhector_gazebo_ros_gps.so">
+    <updateRate>40</updateRate>
+    <bodyName>gps_link</bodyName>
+    <frameId>body</frameId>
+    <topicName>navsat/fix</topicName>
+    <velocityTopicName>navsat/vel</velocityTopicName>
+    <referenceLatitude>$(optenv GAZEBO_WORLD_LAT 49.9)</referenceLatitude>
+    <referenceLongitude>$(optenv GAZEBO_WORLD_LON 8.9)</referenceLongitude>
+    <referenceHeading>90</referenceHeading>
+    <referenceAltitude>0</referenceAltitude>
+    <drift>0.0000001 0.000001 0.000001</drift>
+  </plugin>
+</gazebo>
+  
+
+
+</robot>

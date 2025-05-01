@@ -38,6 +38,7 @@
   </collision>
 </link>
 
+
 <joint name="inertial_joint" type="fixed">
   <parent link="base_link"/>
   <child link="main_mass"/>
@@ -68,7 +69,7 @@
   gpu="true"
 >
   <!-- <origin xyz="0.0 0.0 1.153" rpy="0 0 0" /> -->
-  <origin xyz="0.2 0.0 0.9" rpy="0 0.3 0" />
+  <origin xyz="0.2 0.0 0.6" rpy="0 0 0" />
 
 </xacro:VLP-16>
 <!-- 加载驱动轮模型  -->

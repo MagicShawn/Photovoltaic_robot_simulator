@@ -2,9 +2,11 @@
 CMakeLists.txt
 /.vscode/
 /.catkin_tools/
-/build/
-/devel/
-/logs/
+/build**/
+/devel**/
+/logs**/
+/data/
+/rosbag/
 /.catkin_tools/
 
 

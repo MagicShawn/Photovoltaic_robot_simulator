@@ -1,0 +1,455 @@
+Using argument 'src' as a path to search.
+found 25 packages.
+    fast_lio
+    fast_lio_sam
+    bspline_opt
+    ego_planner
+    path_searching
+    traj_utils
+    plan_env
+    so3_quadrotor_simulator
+    mockamap
+    map_generator
+    local_sensing_node
+    quadrotor_msgs
+    multi_map_server
+    rviz_plugins
+    waypoint_generator
+    odom_visualization
+    pose_utils
+    cmake_utils
+    uav_utils
+    so3_control
+    robot_description
+    keyboard_teleop
+    robot_control
+    mvbs_nav
+    livox_ros_driver
+Searching ROS_PACKAGE_PATH for sources: ['/home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src', '/home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/keyboard_teleop', '/home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/hardware_driver/livox_ros_driver', '/home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/slam_algorithm/FAST_LIO_SAM/FAST_LIO_SAM', '/home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/navigation/mvbs_nav', '/home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_control', '/home/maxliang/Project/Mine/BiShe/Reference/Photovoltaic_robot_simulator/src/robot_simulator/robot_description', '/opt/ros/noetic/share']
+found 1 packages.
+    keyboard_teleop
+found 1 packages.
+    livox_ros_driver
+found 1 packages.
+    fast_lio_sam
+found 1 packages.
+    mvbs_nav
+found 1 packages.
+    robot_control
+found 1 packages.
+    robot_description
+found 302 packages.
+    diagnostic_common_diagnostics
+    xmlrpcpp
+    rqt_web
+    visualization_tutorials
+    gripper_action_controller
+    rosgraph
+    joint_state_controller
+    karto_sdk
+    laser_assembler
+    urdf_sim_tutorial
+    laser_geometry
+    roscpp_traits
+    stereo_msgs
+    qt_gui
+    joint_state_publisher
+    move_base
+    tf2
+    mbf_msgs
+    rqt_bag
+    vision_opencv
+    global_planner
+    stage_ros
+    message_runtime
+    webkit_dependency
+    velodyne_gazebo_plugins
+    desktop_full
+    rviz_plugin_tutorials
+    mk
+    rqt_top
+    realtime_tools
+    rosconsole_bridge
+    combined_robot_hw
+    rqt_pose_view
+    turtle_actionlib
+    roslisp
+    teleop_twist_joy
+    xacro
+    ros_control
+    rqt_launch
+    rosboost_cfg
+    rosconsole
+    ros_comm
+    polled_camera
+    costmap_2d
+    roswtf
+    rostopic
+    diff_drive_controller
+    twist_mux
+    carrot_planner
+    roslib
+    urdf
+    bond
+    roslint
+    camera_info_manager
+    visualization_msgs
+    geometry_tutorials
+    bondpy
+    rosmsg
+    rosparam
+    pcl_ros
+    libg2o
+    twist_mux_msgs
+    image_transport_plugins
+    roscreate
+    urdf_tutorial
+    position_controllers
+    navfn
+    sensor_msgs
+    eigen_conversions
+    tf2_msgs
+    fake_localization
+    joy
+    ackermann_steering_controller
+    rqt_nav_view
+    rospy_tutorials
+    gmapping
+    sick_tim
+    rotate_recovery
+    camera_calibration_parsers
+    people_msgs
+    diagnostic_aggregator
+    rqt_py_common
+    ros_base
+    hardware_interface
+    velocity_controllers
+    rqt_service_caller
+    velodyne_description
+    roslz4
+    interactive_marker_twist_server
+    rqt_tf_tree
+    four_wheel_steering_msgs
+    nav_msgs
+    camera_calibration
+    tf2_py
+    slam_toolbox_msgs
+    ros_core
+    tf2_sensor_msgs
+    rqt_py_console
+    joint_trajectory_controller
+    urdf_parser_plugin
+    rqt_rviz
+    ros_tutorials
+    genlisp
+    common_tutorials
+    geneus
+    tf2_eigen
+    qt_dotgraph
+    pluginlib
+    image_common
+    robot_state_publisher
+    geometry_msgs
+    rospack
+    octomap_server
+    mbf_abstract_core
+    rosclean
+    std_msgs
+    qwt_dependency
+    stage
+    rosbag
+    bondcpp
+    slam_toolbox
+    gl_dependency
+    octomap_msgs
+    pluginlib_tutorials
+    forward_command_controller
+    navigation
+    rosbuild
+    diagnostic_analysis
+    effort_controllers
+    laser_filters
+    image_pipeline
+    pcl_msgs
+    filters
+    rqt_logger_level
+    pcl_conversions
+    controller_manager_msgs
+    realsense2_description
+    ros_environment
+    image_proc
+    dynamic_reconfigure
+    theora_image_transport
+    rqt_robot_dashboard
+    image_view
+    genmsg
+    resource_retriever
+    rosunit
+    rqt_robot_monitor
+    librviz_tutorial
+    transmission_interface
+    python_qt_binding
+    teb_local_planner
+    controller_interface
+    move_slow_and_clear
+    hector_gazebo_plugins
+    rosmaster
+    rqt_common_plugins
+    laser_pipeline
+    openslam_gmapping
+    map_msgs
+    tf
+    gazebo_ros
+    spatio_temporal_voxel_layer
+    rospy
+    costmap_converter
+    nodelet_core
+    qt_gui_cpp
+    angles
+    rqt_graph
+    interactive_marker_tutorials
+    rqt_reconfigure
+    trajectory_msgs
+    voxel_grid
+    rqt_moveit
+    actionlib
+    rosgraph_msgs
+    cpp_common
+    rqt_image_view
+    mbf_costmap_core
+    rqt_console
+    sparse_bundle_adjustment
+    mbf_utility
+    base_local_planner
+    bond_core
+    tf2_ros
+    force_torque_sensor_controller
+    rosbash
+    rosmake
+    simulators
+    pointcloud_to_laserscan
+    rqt_bag_plugins
+    rostime
+    gazebo_dev
+    rqt_topic
+    urdf_geometry_parser
+    perception_pcl
+    cmake_modules
+    rqt_msg
+    velodyne_simulator
+    rosservice
+    self_test
+    nodelet_topic_tools
+    genpy
+    topic_tools
+    viz
+    amcl
+    media_export
+    image_publisher
+    rosout
+    ros_controllers
+    executive_smach
+    roscpp
+    roscpp_core
+    catkin
+    gazebo_msgs
+    rosbag_migration_rule
+    rqt_shell
+    rqt_plot
+    gennodejs
+    actionlib_tutorials
+    diagnostics
+    control_msgs
+    turtle_tf
+    stereo_image_proc
+    smclib
+    rqt_gui
+    tf_conversions
+    image_rotate
+    joint_state_publisher_gui
+    rqt_robot_plugins
+    robot_localization
+    visualization_marker_tutorials
+    rqt_runtime_monitor
+    joint_limits_interface
+    compressed_depth_image_transport
+    geographic_msgs
+    gazebo_ros_control
+    cv_bridge
+    class_loader
+    map_server
+    turtle_tf2
+    tf2_kdl
+    desktop
+    rqt_srv
+    smach
+    imu_sensor_controller
+    roslang
+    move_base_msgs
+    perception
+    message_filters
+    rqt_action
+    kdl_parser
+    message_generation
+    uuid_msgs
+    actionlib_msgs
+    roscpp_serialization
+    roslaunch
+    clear_costmap_recovery
+    rviz_python_tutorial
+    smach_msgs
+    dwa_local_planner
+    robot
+    std_srvs
+    image_geometry
+    rqt_gui_py
+    control_toolbox
+    ros
+    rqt_robot_steering
+    roscpp_tutorials
+    ira_laser_tools
+    smach_ros
+    rviz
+    depth_image_proc
+    octomap_ros
+    qt_gui_py_common
+    nodelet_tutorial_math
+    rosfmt
+    rqt_publisher
+    gazebo_ros_pkgs
+    nav_core
+    rosbag_storage
+    rqt_dep
+    rosnode
+    shape_msgs
+    turtlesim
+    rqt_gui_cpp
+    kdl_conversions
+    diagnostic_updater
+    nodelet
+    controller_manager
+    serial
+    diagnostic_msgs
+    image_transport
+    compressed_image_transport
+    octomap
+    interactive_markers
+    gencpp
+    teleop_twist_keyboard
+    gazebo_plugins
+    geometry
+    tf2_geometry_msgs
+    rostest
+    common_msgs
+Skipping the specified rosdep keys:
+- vikit_ros
+- gazebo-dev
+registering installers for rosdep2.platforms.source
+registering installer [source]
+registering installers for rosdep2.platforms.pip
+registering installer [pip]
+registering installers for rosdep2.platforms.gem
+registering installer [gem]
+registering installers for rosdep2.platforms.npm
+registering installer [npm]
+registering installers for rosdep2.platforms.alpine
+registering installer [apk]
+registering installers for rosdep2.platforms.arch
+registering installer [pacman]
+registering installers for rosdep2.platforms.cygwin
+registering installer [apt-cyg]
+registering installers for rosdep2.platforms.debian
+registering installer [apt]
+registering installers for rosdep2.platforms.gentoo
+registering installer [portage]
+registering installers for rosdep2.platforms.nix
+registering installer [nix]
+registering installers for rosdep2.platforms.openembedded
+registering installer [opkg]
+registering installers for rosdep2.platforms.opensuse
+registering installer [zypper]
+registering installers for rosdep2.platforms.osx
+registering installer [macports]
+registering installer [homebrew]
+registering installers for rosdep2.platforms.redhat
+registering installer [dnf]
+registering installer [yum]
+registering installers for rosdep2.platforms.slackware
+registering installer [sbotools]
+registering installer [slackpkg]
+registering installers for rosdep2.platforms.freebsd
+registering installer [pkg]
+registering platforms for rosdep2.platforms.alpine
+add installer [apk] to OS [alpine]
+add installer [pip] to OS [alpine]
+add installer [source] to OS [alpine]
+set default installer [apk] for OS [alpine]
+registering platforms for rosdep2.platforms.arch
+add installer [source] to OS [arch]
+add installer [pacman] to OS [arch]
+add installer [pip] to OS [arch]
+set default installer [pacman] for OS [arch]
+registering platforms for rosdep2.platforms.cygwin
+add installer [source] to OS [cygwin]
+add installer [apt-cyg] to OS [cygwin]
+set default installer [apt-cyg] for OS [cygwin]
+registering platforms for rosdep2.platforms.debian
+add installer [apt] to OS [debian]
+add installer [pip] to OS [debian]
+add installer [gem] to OS [debian]
+add installer [npm] to OS [debian]
+add installer [source] to OS [debian]
+set default installer [apt] for OS [debian]
+add installer [apt] to OS [ubuntu]
+add installer [pip] to OS [ubuntu]
+add installer [gem] to OS [ubuntu]
+add installer [npm] to OS [ubuntu]
+add installer [source] to OS [ubuntu]
+set default installer [apt] for OS [ubuntu]
+registering platforms for rosdep2.platforms.gentoo
+add installer [portage] to OS [gentoo]
+add installer [source] to OS [gentoo]
+set default installer [portage] for OS [gentoo]
+registering platforms for rosdep2.platforms.nix
+add installer [nix] to OS [nixos]
+set default installer [nix] for OS [nixos]
+registering platforms for rosdep2.platforms.openembedded
+add installer [opkg] to OS [openembedded]
+set default installer [opkg] for OS [openembedded]
+registering platforms for rosdep2.platforms.opensuse
+add installer [source] to OS [opensuse]
+add installer [pip] to OS [opensuse]
+add installer [zypper] to OS [opensuse]
+set default installer [zypper] for OS [opensuse]
+registering platforms for rosdep2.platforms.osx
+add installer [homebrew] to OS [osx]
+add installer [macports] to OS [osx]
+add installer [pip] to OS [osx]
+add installer [source] to OS [osx]
+set default installer [homebrew] for OS [osx]
+registering platforms for rosdep2.platforms.redhat
+add installer [pip] to OS [fedora]
+add installer [dnf] to OS [fedora]
+add installer [yum] to OS [fedora]
+add installer [source] to OS [fedora]
+set default installer [yum] for OS [fedora]
+add installer [pip] to OS [rhel]
+add installer [dnf] to OS [rhel]
+add installer [yum] to OS [rhel]
+add installer [source] to OS [rhel]
+set default installer [dnf] for OS [rhel]
+registering platforms for rosdep2.platforms.slackware
+add installer [sbotools] to OS [slackware]
+add installer [pip] to OS [slackware]
+add installer [source] to OS [slackware]
+add installer [slackpkg] to OS [slackware]
+set default installer [sbotools] for OS [slackware]
+registering platforms for rosdep2.platforms.freebsd
+add installer [pkg] to OS [freebsd]
+add installer [pip] to OS [freebsd]
+set default installer [pkg] for OS [freebsd]
+resolving for resources [bspline_opt, fast_lio, keyboard_teleop, so3_quadrotor_simulator, so3_control, robot_description, mvbs_nav, fast_lio_sam, local_sensing_node, uav_utils, ego_planner, waypoint_generator, multi_map_server, livox_ros_driver, pose_utils, map_generator, traj_utils, robot_control, plan_env, odom_visualization, cmake_utils, path_searching, quadrotor_msgs, mockamap, rviz_plugins]
+loading view [*default*] with rospkg loader
+resolution: apt [git, libapr1-dev, libaprutil1-dev, gazebo11, libqt5core5a, libqt5gui5, libqt5widgets5, qtbase5-dev]
+uninstalled: []
+uninstalled dependencies are: []

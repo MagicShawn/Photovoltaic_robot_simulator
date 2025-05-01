@@ -1,12 +1,39 @@
-obstacle_range: 3.0
-raytrace_range: 3.5
+#robot_radius: 0.20  
+# footprint: [[-0.63,-0.55], [-0.63, 0.55], [0.63, 0.55], [0.63,-0.55]] ## Real 1.25 * 1
+footprint: [[-0.1,-0.1], [-0.1, 0.1], [0.1, 0.1], [0.1,-0.1]] ## Real 1.25 * 1
 
-footprint: [[-0.625,-0.5], [-0.625, 0.5], [0.625, 0.5], [0.625,-0.5]] ## 1.25 * 1
-#robot_radius: 0.105
-
-inflation_radius: 1.0
-cost_scaling_factor: 3.0
-
-map_type: costmap
-observation_sources: scan
-scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+ 
+# map_type: voxel # From turtlebot2, 3D map
+# map_type: costmap # From turtlebot3, 2D map
+ 
+obstacle_layer:
+  enabled:              true
+  obstacle_range: 3.0 # 规划考虑几米内障碍物
+  raytrace_range: 3.5 # 实时清除几米内障碍物
+  max_obstacle_height:  0.5
+  unknown_threshold:    15
+  mark_threshold:       0
+  combination_method:   1 # 只能设置为0或1，用来更新地图上的代价值，一般设置为1;
+  track_unknown_space:  true    #true needed for disabling global path planning through unknown space
+  origin_z: 0.0
+  z_resolution: 0.2
+  z_voxels: 2
+  publish_voxel_map: false
+#   observation_sources:  scan 
+#   scan:
+#     data_type: LaserScan
+#     topic: scan
+#     marking: true
+#     clearing: true
+#     min_obstacle_height: 0.05
+#     max_obstacle_height: 0.8
+  
+ 
+# 膨胀层，用于在障碍物外标记一层危险区域，在路径规划时需要避开该危险区域
+inflation_layer:
+  enabled:              false
+  cost_scaling_factor:  4.0  # 由于在公式中cost_scaling_factor被乘了一个负数，所以增大比例因子反而会降低代价 (default: 10)
+  inflation_radius:     0.5  # max. distance from an obstacle at which costs are incurred for planning paths.
+ 
+static_layer:
+  enabled:              true

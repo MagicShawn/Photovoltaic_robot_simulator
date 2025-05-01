@@ -1,0 +1,270 @@
+<?xml version="1.0" ?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+<xacro:property name="PI" value="3.1415926535897931" />
+
+<xacro:property name="wheel_radius" value="0.050" />
+<xacro:property name="wheel_width" value="0.0505" />
+
+<material name="light_grey"><color rgba="0.4 0.4 0.4 1.0" /></material>
+
+
+<xacro:include filename="$(find robot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find robot_description)/urdf/robot.trans" />
+<xacro:include filename="$(find robot_description)/urdf/robot_mecanum_slam.gazebo" />
+
+
+<xacro:property name="base_collision_height" value="0.5403669088914017"/>
+<xacro:property name="base_mass" value="12.4385441416157"/>
+<xacro:property name="base_mass_ixx" value="9.007417"/>
+<xacro:property name="base_mass_iyy" value="2.398532"/>
+<xacro:property name="base_mass_izz" value="2.911004"/>
+
+
+<link name="body">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+<joint name="inertial_joint" type="fixed">
+  <parent link="body"/>
+  <child link="main_mass"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>  
+
+<link name="main_mass" type="fixed">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="${base_mass}"/>
+    <inertia
+      ixx="${base_mass_ixx}"  ixy="0.000000"  ixz="0.000000"
+      iyy="${base_mass_iyy}"  iyz="0.000000"
+      izz="${base_mass_izz}"/>
+  </inertial>
+</link>
+
+<!-- 调用激光雷达 -->
+<xacro:include filename="$(find robot_description)/urdf/VLP-16.urdf.xacro"/>
+<xacro:VLP-16 
+  parent="body" 
+  name="velodyne" 
+  topic="/velodyne_points" 
+  hz="10" 
+  samples="880"
+  min_range="0.5"
+  max_range="130" 
+  gpu="true"
+>
+  <!-- <origin xyz="0.0 0.0 1.153" rpy="0 0 0" /> -->
+  <origin xyz="0.2 0.0 0.9" rpy="0 0.3 0" />
+
+</xacro:VLP-16>
+<!-- 加载驱动轮模型  -->
+<joint name="back_right_wheel_joint" type="continuous">
+  <origin xyz="-0.201052 -0.388969 0.064" rpy="0 0 0"/>
+  <parent link="body"/>
+  <child link="back_right_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<link name="back_right_wheel">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description/meshes/mecanum_wheel_left.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="light_grey" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.3844"/>
+      <!-- Inertia based on cylinder -->
+      <inertia
+        ixx="0.000324824" ixy="0" ixz="0"
+        iyy="0.000480000" iyz="0"
+        izz="0.000324824"/>
+    </inertial>
+</link>
+
+
+<joint name="back_left_wheel_joint" type="continuous">
+  <origin xyz="-0.201052 0.391031 0.064" rpy="0 0 0"/>
+  <parent link="body"/>
+  <child link="back_left_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<link name="back_left_wheel">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description/meshes/mecanum_wheel_right.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="light_grey" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.3844"/>
+      <!-- Inertia based on cylinder -->
+      <inertia
+        ixx="0.000324824" ixy="0" ixz="0"
+        iyy="0.000480000" iyz="0"
+        izz="0.000324824"/>
+    </inertial>
+</link>
+
+
+
+<joint name="front_left_wheel_joint" type="continuous">
+  <origin xyz="0.198948 0.391031 0.064" rpy="0 0 0"/>
+  <parent link="body"/>
+  <child link="front_left_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<link name="front_left_wheel">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description/meshes/mecanum_wheel_left.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="light_grey" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.3844"/>
+      <!-- Inertia based on cylinder -->
+      <inertia
+        ixx="0.000324824" ixy="0" ixz="0"
+        iyy="0.000480000" iyz="0"
+        izz="0.000324824"/>
+    </inertial>
+</link>
+
+
+<joint name="front_right_wheel_joint" type="continuous">
+  <origin xyz="0.198948 -0.388969 0.064" rpy="0 0 0"/>
+  <parent link="body"/>
+  <child link="front_right_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<link name="front_right_wheel">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description/meshes/mecanum_wheel_right.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="light_grey" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.3844"/>
+      <!-- Inertia based on cylinder -->
+      <inertia
+        ixx="0.000324824" ixy="0" ixz="0"
+        iyy="0.000480000" iyz="0"
+        izz="0.000324824"/>
+    </inertial>
+</link>
+
+<!-- 添加imu连接 -->
+<joint name="imu_fixed_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.923475" rpy="0 0 0"/>
+  <parent link="body"/>
+  <child link="imu_link"/>
+</joint>
+
+<link name="imu_link">
+  <inertial>
+    <origin xyz="-3.1964619419726226e-05 -3.009551236631383e-17 0.004668359474671813" rpy="0 0 0"/>
+    <mass value="0.18887672743007808"/>
+    <inertia ixx="4.3e-05" iyy="3.5e-05" izz="7.5e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.923475" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/imu_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.923475" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_description/meshes/imu_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gps_link">
+  <inertial>
+    <mass value="0.1"/>
+    <origin xyz="0 0 0" />
+    <inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0.01" ixz="0.01" iyz="0.01"/>
+  </inertial>
+  <visual>
+    <geometry>
+      <sphere radius="0.01"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <geometry>
+      <sphere radius="0.1"/>
+    </geometry>
+  </collision>
+  <sensor name="gps_sensor" type="gps">
+    <update_rate>1.0</update_rate>
+    <visualize>true</visualize>
+    <gps>
+      <position>0 0 0</position>
+    </gps>
+  </sensor>
+</link>
+
+<joint name="gps_link_joint" type="fixed">
+  <parent link="body" />
+  <child link="gps_link" />
+  <origin xyz="0.0 0.0 0.9" rpy="0 0 0" />  <!-- 适当设置位置 -->
+</joint>
+
+
+
+</robot>

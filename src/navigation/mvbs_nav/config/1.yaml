@@ -1,0 +1,14 @@
+
+lidar_topic: /XT_16_Points
+
+odom_topic: /odom
+
+base_frame_id: base_link
+
+global_frame_id: map
+
+vel_topic: /cmd_vel
+
+map_topic: /map
+
+robot_state: /gazebo/model_states

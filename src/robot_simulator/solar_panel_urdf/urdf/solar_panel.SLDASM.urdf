@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="solar_panel_urdf">
+  <link
+    name="solar_panel">
+    <inertial>
+      <origin
+        xyz="0.010837 -0.0033188 0.27731"
+        rpy="0 0 0" />
+      <mass
+        value="11.209" />
+      <inertia
+        ixx="0.1458"
+        ixy="0.0066149"
+        ixz="-0.0041628"
+        iyy="1.025"
+        iyz="-0.047045"
+        izz="1.0105" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solar_panel_urdf/meshes/solar_panel.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://solar_panel_urdf/meshes/solar_panel.stl" />
+      </geometry>
+    </collision>
+  </link>
+</robot>
