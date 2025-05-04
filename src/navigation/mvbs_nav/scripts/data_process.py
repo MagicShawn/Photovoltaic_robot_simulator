@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 
-robot_path="data/waypoints/TEB_1.csv"
+robot_path="data/waypoints/real_test/trajectory_data_1_3.csv"
 # 读取数据
 df = pd.read_csv(robot_path)
 

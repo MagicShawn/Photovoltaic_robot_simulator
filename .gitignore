@@ -21,5 +21,7 @@ CMakeLists.txt
 /src/slam_algorithm/FAST_LIO/log
 /src/slam_algorithm/FAST_LIO/doc
 
+/src/scout_msgs/
+
 .vscode
 livox_ros_driver
